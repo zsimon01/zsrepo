@@ -1,0 +1,22 @@
+# Szorzótábla rekurzívan v1
+import numpy as np
+n = int(input("Szorzótábla A(nxm): n = "))
+m = int(input("Szorzótábla A(nxm): m = "))
+i = int() # A(nxm)=[a(i,j)] (i = 1,2,...,n; j = 1,2,...,m).
+j = int()
+line = []
+def nxm_table(n,m,j):
+    if j <= m:
+        unit_j = j
+        line.append(unit_j)
+        if j == m:
+            def column(i):
+                if i > n: # base case (n is from user input)
+                    return
+                if i <= n:
+                    unit_i = i
+                    print(np.dot(unit_i,line))
+                return column(i + 1)
+            column(1)
+        return nxm_table(n,m,j + 1)
+nxm_table(n,m,1)
