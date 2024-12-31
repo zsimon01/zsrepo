@@ -1,0 +1,4 @@
+Welcome to Juno
+This document is called Jupyter notebook. Run button will evaluate selected cell, and code output will appear in the cell output area below.
+# Give it a go:
+print("Hello, world!")
