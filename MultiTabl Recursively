@@ -1,7 +1,7 @@
-# Szorzótábla rekurzívan v1
+# Multiplication Table Recursively v1
 import numpy as np
-n = int(input("Szorzótábla A(nxm): n = "))
-m = int(input("Szorzótábla A(nxm): m = "))
+n = int(input("MultiTable A(nxm): n = "))
+m = int(input("MultiTable A(nxm): m = "))
 i = int() # A(nxm)=[a(i,j)] (i = 1,2,...,n; j = 1,2,...,m).
 j = int()
 line = []
