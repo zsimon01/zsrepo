@@ -1,0 +1,68 @@
+Programozási technikák projectfeladat - Simon Zoltán - 19/04/2024
+
+#import csv
+import sys
+def main():
+    menu()
+def menu():
+    print("Hinge 6CVC mérési adatok bevitele / kiértékelése")
+    case = input("""
+    Μ: Mérés és adatbevitel
+    K: Kiértékelés
+    B: Befejezés
+    Választott funkció: """)
+    if case == "M" or valaszt == "m":
+        meres()
+    elif case == "K" or valaszt == "k":
+        kiertekeles()
+    elif case == "B" or valaszt == "b":
+        sys.exit
+    else:
+        print("Az A vagy B között kell választania")
+        menu()
+        record = {key:['OP', 'LHID', 'UHID', ... , 'ID05']}
+def meres():
+    record = {}
+    record['key'] = input('azonosító: ')
+    record['OP'] = input('operátor: ')
+    record['MacNo'] = input('gépszám: ')
+    record['LOT'] = input('lotszám: ')
+    record['MeaDev'] = input('mérőeszköz száma: ')
+    record['GradC'] = input('hőmérséklet: ')
+    record['ID1'] = input('minta ID1: ')
+    record['ID2'] = input('minta ID2: ')
+    record['ID3'] = input('minta ID3: ')
+    record['ID4'] = input('minta ID4: ')
+    record['ID5'] = input('minta ID5: ')
+    record = dict({record['key']:[record['OP'], record['MacNo'], record['LOT'], record['MeaDev'], record['GradC'], record['ID1'], record['ID2'], record['ID3'], record['ID4'], record['ID5']]})
+    record = str(record)
+    outfile = open('MeasData-H6CVC.txt','w')
+# outfile = open('MeasData-H6CVC.txt','a')
+    for line in range(0,10):
+        outfile.write(record + '\n')
+    outfile.close()
+def kiertekeles():
+    recordback = str()
+    keysearch = str()
+    keysearch = input('azonosító: ')
+    infile = open('MeasData-H6CVC.txt','r')
+    for line in infile:
+        # print(type(recordback)) # str
+        recordback = eval(line)
+        # print(type(recordback)) # dict
+        ID1 = recordback.get((keysearch))[5]
+        ID2 = recordback.get((keysearch))[6]
+        ID3 = recordback.get((keysearch))[7]
+        ID4 = recordback.get((keysearch))[8]
+        ID5 = recordback.get((keysearch))[9]
+        # print(type(ID1)) # str
+        ID1 = float(ID1)
+        ID2 = float(ID2)
+        ID3 = float(ID3)
+        ID4 = float(ID4)
+        ID5 = float(ID5)
+        # print(type(ID1)) # float
+        print('ID1 =',ID1,'| ID2 =',ID2,'| ID3 =',ID3,'| ID4 =',ID4,'| ID5 =',ID5)
+        print("Mean of IDs =",(ID1+ID2+ID3+ID4+ID5)/5)
+    infile.close()
+main()
